@@ -1,0 +1,21 @@
+{
+    "name": "yunhanshi/windcave-payment",
+    "description": "The composer plugin for Payment Express (Windcave) Pxpay 2 and EFTPOS HIT (host Initiated Transactions)",
+    "type": "composer-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yunhan Shi",
+            "email": "yunhanshi33@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "WindcavePayment\\": "src/"
+        }
+    }
+}
