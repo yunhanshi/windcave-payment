@@ -105,7 +105,12 @@ class HITRequest
      */
     public function setTxnType($TxnType)
     {
-        $this->TxnType = ucfirst(strtolower($TxnType));
+        $lower = strtolower($TxnType);
+        if ($lower == 'ui') {
+            $this->TxnType = strtoupper($lower);
+        } else {
+            $this->TxnType = ucfirst($lower);
+        }
     }
 
     /**
@@ -508,12 +513,12 @@ class HITRequest
             $msg .= "Invalid UiType[$this->UiType], should be 'Bn'<br>";
         }
 
-        if(empty($this->Name) || !in_array($this->UiType, ['B1', 'B2'])) {
+        if(empty($this->Name) || !in_array($this->Name, ['B1', 'B2'])) {
             $msg .= "Invalid Name[$this->Name], should be 'B1' or 'B2'<br>";
         }
 
-        if(empty($this->Val) || !in_array($this->UiType, ['YES', 'NO'])) {
-            $msg .= "Invalid Val[$this->Val], should be 'YES' or 'NO'<br>";
+        if(empty($this->Val)) {
+            $msg .= "Invalid Val[$this->Val], should be Like 'YES','NO' or 'CANCLE'<br>";
         }
 
         return $msg;
